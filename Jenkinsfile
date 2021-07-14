@@ -15,13 +15,13 @@ pipeline {
     
     
     
- /*  stage ('Check-Git-Secrets') {
+   stage ('Check-Git-Secrets') {
       steps {
         sh 'rm trufflehog || true'
-        sh 'docker run gesellix/trufflehog --json https://github.com/lumostay/DevSecOps-Pipeline.git > trufflehog'
+        sh 'docker run gesellix/trufflehog --json https://github.com/lumostay/DevSecOpsPipeline > trufflehog'
         sh 'cat trufflehog'
       }
-    }   */
+    }   
     
   /* stage ('Source Composition Analysis') {
       steps {
@@ -46,7 +46,7 @@ pipeline {
     
     stage ('Build') {
       steps {
-      cleanWs()
+      
       sh 'mvn clean package'
        }
     }
@@ -63,7 +63,7 @@ pipeline {
 
     
     
-    /*
+    
     
     stage ('DAST') {
       steps {
@@ -72,7 +72,7 @@ pipeline {
        sh 'docker run -t owasp/zap2docker-stable zap-baseline.py -t http://18.117.153.231:8080/webapp/ || true'
        // }
       }
-    } */
+    } 
     
   }
 }
